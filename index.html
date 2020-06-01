@@ -27,12 +27,29 @@
     </style>
     <div id="mywidget"></div>
 
-    <div>
-      <p onClick="setActiveMall(4504235301257840)">Хорошо</p>
-      <p onClick="setActiveMall(4504235295534895)">Океания</p>
-    </div>
-    
+    <div id="malls"></div>
+
     <script>
+      const malls = [
+        {
+          name: "Хорошо",
+          id2gis: "4504235301257840",
+        },
+        {
+          name: "Океания",
+          id2gis: "4504235295534895",
+        },
+      ];
+
+      const arr = malls.map(
+        (mall) => `<p onClick="setActiveMall(${mall.id2gis})">${mall.name}</p>`
+      );
+
+      const markup = arr.join(" ");
+
+      const target = document.getElementById("malls");
+      target.innerHTML += markup;
+
       function setActiveMall(id) {
         DG.FloorsWidget.init({
           container: "mywidget",
