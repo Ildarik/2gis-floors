@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2gis</title>
+    <script
+      charset="utf-8"
+      src="https://floors-widget.api.2gis.ru/loader.js"
+      id="dg-floors-widget-loader"
+    ></script>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+      }
+
+      #mywidget {
+        width: 960px;
+        height: 600px;
+      }
+
+      body {
+        display: flex;
+      }
+    </style>
+    <div id="mywidget"></div>
+
+    <div>
+      <p onClick="setActiveMall(4504235301257840)">Хорошо</p>
+      <p onClick="setActiveMall(4504235295534895)">Океания</p>
+    </div>
+    
+    <script>
+      function setActiveMall(id) {
+        DG.FloorsWidget.init({
+          container: "mywidget",
+          initData: {
+            complexId: id,
+          },
+        });
+      }
+    </script>
+  </body>
+</html>
